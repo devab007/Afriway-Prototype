@@ -1,0 +1,143 @@
+<!doctype html>
+<!-- Angular 17+: ChecklistComponent — PATCH /checklists/:id/items -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Checklist AfriWay pour suivre les étapes du projet de mobilité." />
+  <meta name="theme-color" content="#E3F2FD" />
+  <title>AfriWay · Checklist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h10l-2-2m2 2-2 2"/><path d="M14 7h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="Navigation principale">
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="pays.html">Fiche pays</a>
+        <a href="checklist.html" aria-current="page">Checklist</a>
+        <a href="profil.html">Profil</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="dashboard.html">Retour au tableau</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="check-hero" style="padding-bottom: 16px;">
+      <div class="container reveal">
+        <p class="eyebrow">Suivi du projet</p>
+        <h1 class="h2">Checklist · <span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span></h1>
+        <p class="lead" style="margin-top: 10px;">Cochez les étapes au fur et à mesure. Progression sauvegardée localement dans cette maquette.</p>
+        <div class="card" style="margin-top: 24px; max-width: 420px;">
+          <div class="row-between" style="margin-bottom: 10px;">
+            <span class="meta">Avancement</span>
+            <span class="num" data-progress-label>0 %</span>
+          </div>
+          <div class="progress" data-progress style="--p: 0%;" aria-hidden="true"><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="check-list" style="padding-top: 0;">
+      <div class="container">
+        <div class="card reveal" data-checklist>
+          <div class="check-item" data-check-id="c1">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Créer mon compte AfriWay</p>
+              <p class="meta" style="margin-top: 4px;">Inscription et confirmation e-mail (API auth Laravel)</p>
+            </div>
+            <span class="meta">Compte</span>
+          </div>
+          <div class="check-item" data-check-id="c2">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Définir départ, destination et objectif</p>
+              <p class="meta" style="margin-top: 4px;">Écran parcours — objectif actuel : <span data-bind="goal">Études</span></p>
+            </div>
+            <span class="meta">Parcours</span>
+          </div>
+          <div class="check-item" data-check-id="c3">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Lire la liste des documents</p>
+              <p class="meta" style="margin-top: 4px;">Module Documents de la fiche pays</p>
+            </div>
+            <span class="meta">Documents</span>
+          </div>
+          <div class="check-item" data-check-id="c4">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Identifier l'établissement ou le cadre d'études</p>
+              <p class="meta" style="margin-top: 4px;">Module Études — données [À REMPLIR]</p>
+            </div>
+            <span class="meta">Études</span>
+          </div>
+          <div class="check-item" data-check-id="c5">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Estimer le budget logement + vie courante</p>
+              <p class="meta" style="margin-top: 4px;">Modules Logement et Coût de la vie</p>
+            </div>
+            <span class="meta">Budget</span>
+          </div>
+          <div class="check-item" data-check-id="c6">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Lancer les démarches administratives</p>
+              <p class="meta" style="margin-top: 4px;">Délais et contacts : [À REMPLIR]</p>
+            </div>
+            <span class="meta">Admin</span>
+          </div>
+          <div class="check-item" data-check-id="c7">
+            <button type="button" class="check-toggle" aria-pressed="false" aria-label="Marquer comme faite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            </button>
+            <div>
+              <p class="check-title" style="font-weight: 600;">Préparer le transport et l'arrivée</p>
+              <p class="meta" style="margin-top: 4px;">Module Transport & infos pratiques</p>
+            </div>
+            <span class="meta">Trajet</span>
+          </div>
+        </div>
+        <p class="meta reveal" style="margin-top: 16px;">Astuce : ouvrez l'assistant depuis le tableau de bord pour une question ponctuelle.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="index.html">Lanceur maquette</a></span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

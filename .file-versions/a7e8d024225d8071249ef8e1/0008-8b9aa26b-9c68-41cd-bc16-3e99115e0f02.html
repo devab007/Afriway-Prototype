@@ -1,0 +1,185 @@
+<!doctype html>
+<!-- Angular 17+: DashboardComponent — AiAssistantComponent (primary) + JourneySummaryComponent -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tableau de bord AfriWay : assistant et modules de votre parcours." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Tableau de bord</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+  <script>try{if(JSON.parse(localStorage.getItem("afriway.state.v1")||"{}").auth!==true){location.replace("auth.html");}}catch(e){}</script>
+</head>
+<body class="app-shell" data-page="dashboard">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="dashboard.html" aria-current="page">Tableau de bord</a>
+        <a href="pays.html">Fiche pays</a>
+        <a href="evenement.html">Événements</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="profil.html">Profil</a>
+      </nav>
+      <a class="btn btn-primary topbar-cta" href="pays.html">Fiche pays</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="dash-main">
+      <div class="container">
+        <div class="row-between dash-greet reveal" style="flex-wrap: wrap; gap: 12px; align-items: center;">
+          <div>
+            <p class="eyebrow">Bonjour <span data-bind="name">Awa Diop</span></p>
+            <h1 class="h3">Votre assistant vous attend</h1>
+          </div>
+          <span class="route-badge"><span class="dot"></span><span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span> · <span data-bind="goal">Études</span></span>
+        </div>
+
+        <div class="grid-dash">
+          <div class="card ai-shell reveal" data-chat data-od-id="assistant">
+            <div class="ai-head">
+              <span class="ai-orb" aria-hidden="true"></span>
+              <div style="flex: 1; min-width: 0;">
+                <p class="ai-title">AfriWay</p>
+                <span class="ai-status">En ligne</span>
+              </div>
+              <div class="chat-modes" role="group" aria-label="Mode de conversation" data-chat-mode>
+                <button type="button" class="chat-mode is-on" data-mode="text" aria-pressed="true">Écrit</button>
+                <button type="button" class="chat-mode" data-mode="voice" aria-pressed="false">Vocal</button>
+              </div>
+            </div>
+            <div class="chat-log" aria-live="polite">
+              <div class="bubble bubble-bot">Bonjour <span data-bind="name">Awa Diop</span>. Je vous accompagne sur votre corridor <span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span>. Posez votre question ou choisissez une suggestion ci-dessous.</div>
+            </div>
+            <div class="stack" style="gap: 12px;">
+              <div class="chat-chips">
+                <button type="button" class="chat-chip" data-suggest="Quels documents pour un séjour études ?">Documents pour études</button>
+                <button type="button" class="chat-chip" data-suggest="Combien de temps avant le départ faut-il lancer les démarches ?">Délais à anticiper</button>
+                <button type="button" class="chat-chip" data-suggest="Comment choisir un logement proche du campus ?">Choisir un logement</button>
+              </div>
+              <form class="chat-compose">
+                <input class="input" type="text" placeholder="Écrivez votre question…" aria-label="Message à l'assistant" />
+                <button class="btn btn-primary" type="submit" aria-label="Envoyer">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12l16-7-7 16-2-6-7-3z"/></svg>
+                </button>
+              </form>
+              <div class="voice-stage" data-voice-stage>
+                <button type="button" class="mic-btn" data-mic aria-pressed="false" aria-label="Parler à l'assistant">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
+                </button>
+                <div class="voice-visualizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <p class="voice-hint" data-voice-hint>Appuyez sur le micro et parlez</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="stack reveal" data-delay="1" data-od-id="dash-aside" style="gap: 16px;">
+            <div class="card">
+              <p class="eyebrow">Résumé du parcours</p>
+              <div class="stack" style="gap: 12px;">
+                <div class="row-between"><span class="meta">Corridor</span><strong><span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span></strong></div>
+                <div class="row-between"><span class="meta">Objectif</span><strong data-bind="goal">Études</strong></div>
+                <div class="row-between"><span class="meta">Modules</span><strong>06</strong></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="row-between">
+                <p class="eyebrow" style="margin-bottom: 0;">Progression</p>
+                <span class="num" id="dash-progress-label">0 %</span>
+              </div>
+              <div class="progress" id="dash-progress" style="--p: 0%; margin-top: 14px;" aria-hidden="true"><span></span></div>
+              <a class="btn btn-secondary btn-block" style="margin-top: 18px;" href="checklist.html">Ouvrir la checklist</a>
+            </div>
+            <div class="card">
+              <p class="eyebrow">Raccourcis</p>
+              <div class="stack" style="gap: 6px;">
+                <a class="btn btn-ghost btn-arrow" href="pays.html" style="justify-content: flex-start;">Fiche pays complète</a>
+                <a class="btn btn-ghost btn-arrow" href="parcours.html" style="justify-content: flex-start;">Modifier le parcours</a>
+                <a class="btn btn-ghost btn-arrow" href="profil.html" style="justify-content: flex-start;">Profil & parcours</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="dash-modules" style="padding-top: 0;">
+      <div class="container stack reveal">
+        <div class="row-between" style="flex-wrap: wrap; gap: 12px; align-items: end;">
+          <div>
+            <p class="eyebrow">Modules</p>
+            <h2>Ce que vous devez préparer</h2>
+          </div>
+          <div class="search-bar" style="margin-bottom: 0; min-width: min(340px, 100%);">
+            <input class="input" type="search" data-filter-input placeholder="Filtrer (logement, visa, campus…)" aria-label="Rechercher dans les modules" />
+            <a class="btn btn-secondary" href="parcours.html">Modifier</a>
+          </div>
+        </div>
+
+        <div class="mod-grid" data-filter-scope>
+          <a class="card card-interactive mod-card" href="pays.html#documents" data-filter-item="documents visa démarches administratives" data-od-id="mod-docs">
+            <span class="mod-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/></svg></span>
+            <h3>Documents & démarches</h3>
+            <p class="meta">Pièces selon le corridor et l'objectif</p>
+          </a>
+          <a class="card card-interactive mod-card" href="pays.html#etudes" data-filter-item="études universités formations campus" data-od-id="mod-etudes">
+            <span class="mod-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1 2.5 3 5 3s5-2 5-3v-5"/></svg></span>
+            <h3>Études</h3>
+            <p class="meta">Établissements et admissions à confirmer</p>
+          </a>
+          <a class="card card-interactive mod-card" href="pays.html#logement" data-filter-item="logement cité campus location" data-od-id="mod-logement">
+            <span class="mod-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10l8-6 8 6v10H4V10z"/><path d="M9 20v-6h6v6"/></svg></span>
+            <h3>Logement</h3>
+            <p class="meta">Cités campus et locations privées</p>
+          </a>
+          <a class="card card-interactive mod-card" href="pays.html#cout" data-filter-item="coût vie budget transport dépenses" data-od-id="mod-cout">
+            <span class="mod-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M9.5 9.5c.5-1 3.5-1.5 3.5.8S10 12 10 12s3 .4 3 2-2.5 1.8-3.5.8"/></svg></span>
+            <h3>Coût de la vie</h3>
+            <p class="meta">Repères de budget et postes clés</p>
+          </a>
+          <a class="card card-interactive mod-card" href="pays.html#transport" data-filter-item="transport arrivée aéroport bus trajet" data-od-id="mod-transport">
+            <span class="mod-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 16V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9"/><path d="M4 16h16M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span>
+            <h3>Transport</h3>
+            <p class="meta">Arrivée, ville et liaisons régionales</p>
+          </a>
+          <a class="card card-interactive mod-card" href="pays.html#profil" data-filter-item="profil touriste étudiant visiteur recommandations lieux" data-od-id="mod-profil">
+            <span class="mod-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></svg></span>
+            <h3>Selon votre profil</h3>
+            <p class="meta">Étudiant, touriste, visiteur…</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta">Corridor ouest-africain · 5 pays</span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+  <script>
+    (function () {
+      var state = window.AfriWay ? AfriWay.loadState() : {};
+      var done = (state.checklist || []).length;
+      var total = 7;
+      var pct = Math.min(100, Math.round((done / total) * 100));
+      var bar = document.getElementById("dash-progress");
+      var label = document.getElementById("dash-progress-label");
+      if (bar) bar.style.setProperty("--p", pct + "%");
+      if (label) label.textContent = pct + " %";
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<!-- Angular 17+: ParcoursWizardComponent — from/to/goal → JourneyService -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Choisissez pays de départ, destination et objectif sur AfriWay." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Parcours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+  <script>try{if(JSON.parse(localStorage.getItem("afriway.state.v1")||"{}").auth!==true){location.replace("auth.html");}}catch(e){location.replace("auth.html");}</script>
+</head>
+<body class="app-shell" data-page="parcours">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
+        <a href="parcours.html" aria-current="page">Parcours</a>
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="profil.html">Profil</a>
+      </nav>
+      <a class="btn btn-secondary topbar-cta" href="dashboard.html">Board</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="parcours-hero" style="padding-bottom: 12px;">
+      <div class="container reveal">
+        <div class="hero-kicker">
+          <span class="pill">Étape 1 / 3</span>
+          <hr class="arc-line" aria-hidden="true" />
+        </div>
+        <h1 class="h1">Où partez-vous, où allez-vous ?</h1>
+        <p class="lead" style="margin-top: 12px;">Cinq pays du corridor ouest-africain. Vous pourrez tout ajuster à tout moment.</p>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="parcours-form" style="padding-top: 0;">
+      <div class="container">
+        <form class="grid-2-1" data-parcours-form>
+          <div class="stack reveal" style="gap: 20px;">
+            <div class="globe-stage is-flat" data-od-id="parcours-globe" aria-label="Aperçu du corridor">
+              <span class="globe-hint">Glisser pour tourner</span>
+              <canvas class="globe-canvas" data-globe aria-label="Globe 3D du corridor"></canvas>
+              <div class="globe-overlay">
+                <span class="route-badge"><span class="dot"></span><span data-preview-from>Sénégal</span> → <span data-preview-to>Côte d'Ivoire</span></span>
+                <span class="pill" data-preview-goal>Études</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2 class="h3" style="margin-bottom: 16px;">Corridor</h2>
+              <div class="grid-2">
+                <div class="field">
+                  <label for="from">Pays de départ</label>
+                  <select class="select" id="from" name="from" required>
+                    <option value="">Choisir…</option>
+                    <option value="Sénégal" selected>Sénégal</option>
+                    <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Guinée">Guinée</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="to">Pays de destination</label>
+                  <select class="select" id="to" name="to" required>
+                    <option value="">Choisir…</option>
+                    <option value="Sénégal">Sénégal</option>
+                    <option value="Côte d'Ivoire" selected>Côte d'Ivoire</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Guinée">Guinée</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2 class="h3" style="margin-bottom: 8px;">Objectif de mobilité</h2>
+              <p class="meta" style="margin-bottom: 16px;">Un seul choix pour personnaliser les modules.</p>
+              <div class="choice-grid" data-choice-group="goal" role="group" aria-label="Objectif">
+                <button type="button" class="choice" data-choice="etudes" aria-pressed="true" data-od-id="goal-etudes">
+                  <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1 2.5 3 5 3s5-2 5-3v-5"/></svg></span>
+                  <strong>Études</strong>
+                  <span>Campus, admissions</span>
+                </button>
+                <button type="button" class="choice" data-choice="travail" aria-pressed="false" data-od-id="goal-travail">
+                  <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+                  <strong>Travail</strong>
+                  <span>Titres, contrats</span>
+                </button>
+                <button type="button" class="choice" data-choice="voyage" aria-pressed="false" data-od-id="goal-voyage">
+                  <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 21l-1-7 9-5-9-5-1 7-6 3 8 2z"/></svg></span>
+                  <strong>Voyage</strong>
+                  <span>Séjour court</span>
+                </button>
+                <button type="button" class="choice" data-choice="installation" aria-pressed="false" data-od-id="goal-installation">
+                  <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10l8-6 8 6v10H4V10z"/><path d="M9 20v-6h6v6"/></svg></span>
+                  <strong>Installation</strong>
+                  <span>Long séjour</span>
+                </button>
+                <button type="button" class="choice" data-choice="entrepreneuriat" aria-pressed="false" data-od-id="goal-entrepreneuriat">
+                  <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18"/><path d="M7 8h10"/><path d="M6 12h12"/><path d="M8 16h8"/></svg></span>
+                  <strong>Entrepreneuriat</strong>
+                  <span>Création d'activité</span>
+                </button>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" data-od-id="parcours-submit">
+              Voir mon tableau de bord
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <aside class="card reveal" data-delay="1" data-od-id="parcours-aside" style="position: sticky; top: 92px;">
+            <p class="eyebrow">Aperçu live</p>
+            <h3 style="margin-bottom: 8px;"><span data-preview-from>Sénégal</span> → <span data-preview-to>Côte d'Ivoire</span></h3>
+            <p class="meta" style="margin-bottom: 16px;">Objectif · <span data-preview-goal>Études</span></p>
+            <ul class="stack" style="gap: 12px; color: var(--muted); font-size: 14px;">
+              <li>Modules filtrés selon l'objectif</li>
+              <li>Checklist adaptée au corridor</li>
+              <li>Assistant AfriWay sur le tableau de bord</li>
+              <li>Parcours enregistré dans le profil</li>
+            </ul>
+            <hr class="rule" style="margin: 22px 0;" />
+            <p class="meta">Votre itinéraire se met à jour en direct</p>
+          </aside>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="index.html">Tous les écrans</a></span>
+    </div>
+  </footer>
+  <script src="js/globe.js"></script>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<!-- Angular 17+: route '' → AppLauncherComponent (présentation des écrans) -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AfriWay — tous les écrans : préparer une mobilité entre pays d'Afrique de l'Ouest." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>AfriWay · Tous les écrans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell" data-page="index">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
+        <a href="auth.html">Connexion</a>
+        <a href="dashboard.html">Tableau de bord</a>
+      </nav>
+      <a class="btn btn-primary topbar-cta" href="accueil.html">Ouvrir l'app</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="hero-stage tex" data-od-id="launcher-hero">
+      <div class="container hero-layout">
+        <div class="reveal">
+          <div class="hero-kicker">
+            <span class="pill">Vue d'ensemble</span>
+            <hr class="arc-line" aria-hidden="true" />
+          </div>
+          <h1 class="h-display" style="font-size: clamp(40px, 8vw, 88px);">AfriWay,<br />tous les écrans.</h1>
+          <p class="lead" style="margin-top: 18px;">Le parcours complet en un coup d'œil : accueil, compte, corridor, tableau de bord, fiche pays, checklist et profil — avec un globe 3D interactif.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="accueil.html">Commencer par l'accueil</a>
+            <a class="btn btn-secondary" href="parcours.html">Aller au parcours</a>
+          </div>
+        </div>
+        <div class="globe-stage reveal" data-delay="1" data-od-id="launcher-globe" aria-label="Globe 3D du corridor">
+          <span class="globe-hint">Glisser pour tourner</span>
+          <canvas class="globe-canvas" data-globe aria-label="Globe de points et arcs corail"></canvas>
+          <div class="globe-overlay">
+            <span class="pill">5 pays · arcs live</span>
+            <span class="route-badge"><span class="dot" aria-hidden="true"></span><span data-map-label>Sénégal</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Accueil</span><span>Parcours</span><span>Tableau de bord</span><span>Pays</span><span>Checklist</span><span>Profil</span>
+        <span>Accueil</span><span>Parcours</span><span>Tableau de bord</span><span>Pays</span><span>Checklist</span><span>Profil</span>
+      </div>
+    </div>
+
+    <section class="section" data-od-id="launcher-screens">
+      <div class="container" style="display: grid; gap: 26px;">
+        <div style="max-width: 36ch;">
+          <p class="eyebrow">Écrans</p>
+          <h2>Ouvrir un écran</h2>
+        </div>
+        <div class="launcher-grid">
+          <a class="launcher-card" href="accueil.html" data-od-id="card-accueil"><span class="idx">01</span><h3>Accueil</h3><p class="meta">Globe 3D + fil du corridor</p></a>
+          <a class="launcher-card" href="inscription.html" data-od-id="card-auth"><span class="idx">02</span><h3>Inscription</h3><p class="meta">Créer un compte</p></a>
+          <a class="launcher-card" href="auth.html" data-od-id="card-connexion"><span class="idx">03</span><h3>Connexion</h3><p class="meta">Reprendre un parcours</p></a>
+          <a class="launcher-card" href="parcours.html" data-od-id="card-parcours"><span class="idx">04</span><h3>Pays + objectif</h3><p class="meta">Aperçu live du trajet</p></a>
+          <a class="launcher-card" href="dashboard.html" data-od-id="card-dashboard"><span class="idx">05</span><h3>Tableau de bord</h3><p class="meta">Assistant + modules</p></a>
+          <a class="launcher-card" href="profil.html" data-od-id="card-profil"><span class="idx">06</span><h3>Profil / parcours</h3><p class="meta">Compte et trajectoires</p></a>
+          <a class="launcher-card" href="pays.html" data-od-id="card-pays"><span class="idx">07</span><h3>Fiche pays</h3><p class="meta">Docs, études, logement…</p></a>
+          <a class="launcher-card" href="checklist.html" data-od-id="card-checklist"><span class="idx">08</span><h3>Checklist</h3><p class="meta">Suivi des étapes</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta">5 pays d'Afrique de l'Ouest</span>
+    </div>
+  </footer>
+  <script src="js/globe.js"></script>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<!-- Angular 17+: PaysDetailComponent + child modules via router tabs -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fiche pays AfriWay : documents, études, logement, coût, transport." />
+  <meta name="theme-color" content="#E3F2FD" />
+  <title>AfriWay · Fiche pays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h10l-2-2m2 2-2 2"/><path d="M14 7h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="Navigation principale">
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="pays.html" aria-current="page">Fiche pays</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="profil.html">Profil</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="checklist.html">Passer à la checklist</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="pays-hero" style="padding-bottom: 12px;">
+      <div class="container reveal">
+        <p class="eyebrow">Destination · <span data-bind="to">Côte d'Ivoire</span></p>
+        <div class="row-between" style="flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h1 class="h2">Fiche pays adaptée à votre objectif</h1>
+            <p class="lead" style="margin-top: 10px;">Corridor <span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span> · <span data-bind="goal">Études</span></p>
+          </div>
+          <div class="ph-img" style="width: min(280px, 100%); aspect-ratio: 16/10;" aria-label="Visuel pays placeholder">Visuel pays · à fournir</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="pays-modules" style="padding-top: 8px;" data-tabs>
+      <div class="container">
+        <div class="tabs" role="tablist" aria-label="Modules pays">
+          <button class="tab" role="tab" id="tab-docs" aria-selected="true" aria-controls="panel-docs">Documents</button>
+          <button class="tab" role="tab" id="tab-admin" aria-selected="false" aria-controls="panel-admin">Procédures</button>
+          <button class="tab" role="tab" id="tab-etudes" aria-selected="false" aria-controls="panel-etudes">Études</button>
+          <button class="tab" role="tab" id="tab-logement" aria-selected="false" aria-controls="panel-logement">Logement</button>
+          <button class="tab" role="tab" id="tab-cout" aria-selected="false" aria-controls="panel-cout">Coût de la vie</button>
+          <button class="tab" role="tab" id="tab-transport" aria-selected="false" aria-controls="panel-transport">Transport</button>
+        </div>
+
+        <div class="tab-panel card reveal" role="tabpanel" id="panel-docs" aria-labelledby="tab-docs" data-od-id="panel-docs">
+          <h2 class="h3" style="margin-bottom: 12px;">Documents & pièces</h2>
+          <p class="lead" style="margin-bottom: 20px;">Liste indicative pour le MVP. Les intitulés officiels seront saisis côté admin.</p>
+          <table class="ds-table">
+            <thead>
+              <tr>
+                <th>Pièce</th>
+                <th>Usage</th>
+                <th class="num-col">Statut données</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Passeport valide</td>
+                <td>Entrée et séjour</td>
+                <td class="num-col">Structure OK</td>
+              </tr>
+              <tr>
+                <td>Attestation d'inscription / admission</td>
+                <td>Objectif études</td>
+                <td class="num-col">[À REMPLIR]</td>
+              </tr>
+              <tr>
+                <td>Preuve de ressources</td>
+                <td>Demande de titre / visa</td>
+                <td class="num-col">[À REMPLIR]</td>
+              </tr>
+              <tr>
+                <td>Certificat médical</td>
+                <td>Selon procédure en vigueur</td>
+                <td class="num-col">[À REMPLIR]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-admin" aria-labelledby="tab-admin" hidden data-od-id="panel-admin">
+          <h2 class="h3" style="margin-bottom: 12px;">Procédures administratives</h2>
+          <div class="stack" style="gap: 14px;">
+            <article>
+              <h3 style="font-size: 16px;">Avant le départ</h3>
+              <p style="color: var(--muted); margin-top: 6px;">Vérifier les conditions d'entrée pour le couple pays / objectif. Délais consulaires : [À REMPLIR].</p>
+            </article>
+            <article>
+              <h3 style="font-size: 16px;">À l'arrivée</h3>
+              <p style="color: var(--muted); margin-top: 6px;">Enregistrement local, assurance, ouverture de compte si besoin — détails à brancher depuis Laravel.</p>
+            </article>
+            <article>
+              <h3 style="font-size: 16px;">Contacts utiles</h3>
+              <p style="color: var(--muted); margin-top: 6px;">Ambassade / campus / services étudiants : [À REMPLIR].</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-etudes" aria-labelledby="tab-etudes" hidden data-od-id="panel-etudes">
+          <div class="row-between" style="margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <h2 class="h3">Études & formations</h2>
+            <input class="input" style="max-width: 260px;" type="search" data-filter-input placeholder="Filtrer un établissement…" aria-label="Filtrer établissements" />
+          </div>
+          <div data-filter-scope class="stack" style="gap: 10px;">
+            <article class="card" style="background: var(--bg); padding: 16px;" data-filter-item="université félix houphouët-boigny abidjan" data-od-id="uni-1">
+              <div class="row-between" style="gap: 12px; flex-wrap: wrap;">
+                <div>
+                  <h3 style="font-size: 16px;">Université Félix Houphouët-Boigny</h3>
+                  <p class="meta" style="margin-top: 4px;">Abidjan · Type : publique · Conditions : [À REMPLIR]</p>
+                </div>
+                <span class="tag">Enseignement supérieur</span>
+              </div>
+            </article>
+            <article class="card" style="background: var(--bg); padding: 16px;" data-filter-item="inphb yamoussoukro ingénierie" data-od-id="uni-2">
+              <div class="row-between" style="gap: 12px; flex-wrap: wrap;">
+                <div>
+                  <h3 style="font-size: 16px;">INP-HB</h3>
+                  <p class="meta" style="margin-top: 4px;">Yamoussoukro · Ingénierie · Conditions : [À REMPLIR]</p>
+                </div>
+                <span class="tag">École</span>
+              </div>
+            </article>
+            <p class="meta">Autres établissements : à saisir dans l'admin Laravel.</p>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-logement" aria-labelledby="tab-logement" hidden data-od-id="panel-logement">
+          <h2 class="h3" style="margin-bottom: 12px;">Logement</h2>
+          <div class="grid-2">
+            <article class="card" style="background: var(--bg);">
+              <h3 style="font-size: 16px;">Cités / campus</h3>
+              <p style="color: var(--muted); margin-top: 8px; font-size: 15px;">Options proches des campus — loyers et critères : [À REMPLIR].</p>
+            </article>
+            <article class="card" style="background: var(--bg);">
+              <h3 style="font-size: 16px;">Location privée</h3>
+              <p style="color: var(--muted); margin-top: 8px; font-size: 15px;">Quartiers souvent cités par les étudiants : [À REMPLIR].</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-cout" aria-labelledby="tab-cout" hidden data-od-id="panel-cout">
+          <h2 class="h3" style="margin-bottom: 12px;">Coût de la vie</h2>
+          <p class="lead" style="margin-bottom: 16px;">Pas de chiffres inventés. Les montants seront injectés depuis la base MySQL.</p>
+          <table class="ds-table">
+            <thead>
+              <tr>
+                <th>Poste</th>
+                <th class="num-col">Repère mensuel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Logement étudiant</td><td class="num-col">[À REMPLIR]</td></tr>
+              <tr><td>Alimentation</td><td class="num-col">[À REMPLIR]</td></tr>
+              <tr><td>Transport local</td><td class="num-col">[À REMPLIR]</td></tr>
+              <tr><td>Connexion / frais divers</td><td class="num-col">[À REMPLIR]</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-transport" aria-labelledby="tab-transport" hidden data-od-id="panel-transport">
+          <h2 class="h3" style="margin-bottom: 12px;">Transport & infos pratiques</h2>
+          <ul class="stack" style="gap: 12px; color: var(--muted);">
+            <li><strong style="color: var(--fg);">Arrivée aérienne</strong> — aéroport principal : [À REMPLIR]</li>
+            <li><strong style="color: var(--fg);">Transport urbain</strong> — bus, taxis, apps : [À REMPLIR]</li>
+            <li><strong style="color: var(--fg);">Liaisons régionales</strong> — bus / train vers autres villes : [À REMPLIR]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta">Modules liés aux endpoints Laravel pays/*</span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var hash = (location.hash || "").replace("#", "");
+      var map = { documents: "tab-docs", etudes: "tab-etudes", logement: "tab-logement", cout: "tab-cout", transport: "tab-transport" };
+      var tabId = map[hash];
+      if (!tabId) return;
+      var tab = document.getElementById(tabId);
+      if (tab) tab.click();
+    });
+  </script>
+</body>
+</html>

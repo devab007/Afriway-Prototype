@@ -1,0 +1,121 @@
+<!doctype html>
+<!-- Angular 17+: ProfilComponent — UserProfile + saved Journeys list -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Profil utilisateur et parcours enregistrés AfriWay." />
+  <meta name="theme-color" content="#E3F2FD" />
+  <title>AfriWay · Profil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h10l-2-2m2 2-2 2"/><path d="M14 7h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="Navigation principale">
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="profil.html" aria-current="page">Profil</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="auth.html">Déconnexion</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="profil-header">
+      <div class="container grid-1-2 reveal">
+        <div class="card" style="text-align: center;">
+          <div class="ph-img square" style="max-width: 140px; margin: 0 auto 16px;" aria-label="Photo de profil placeholder">Photo</div>
+          <h1 class="h3" data-bind="name">Awa Diop</h1>
+          <p class="meta" style="margin-top: 6px;" data-bind="email">awa@exemple.sn</p>
+          <p class="meta" style="margin-top: 16px;">Photo : placeholder jusqu'à upload Laravel Storage</p>
+        </div>
+        <div class="stack" style="gap: 16px;">
+          <div>
+            <p class="eyebrow">Compte</p>
+            <h2>Profil et parcours enregistrés</h2>
+            <p class="lead" style="margin-top: 10px;">Les parcours actifs alimentent le tableau de bord et la checklist.</p>
+          </div>
+          <form class="card stack" id="profil-form" data-od-id="profil-form">
+            <div class="grid-2">
+              <div class="field">
+                <label for="p-name">Nom affiché</label>
+                <input class="input" id="p-name" name="name" value="Awa Diop" />
+              </div>
+              <div class="field">
+                <label for="p-city">Ville actuelle</label>
+                <input class="input" id="p-city" name="city" value="Dakar" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="p-bio">Note personnelle</label>
+              <textarea class="textarea" id="p-bio" name="bio" placeholder="Ex. Départ prévu pour la rentrée universitaire…">Candidature études à Abidjan, départ envisagé pour la rentrée.</textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" style="align-self: start;">Enregistrer le profil</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="parcours-list">
+      <div class="container stack reveal" style="gap: 20px;">
+        <div class="row-between" style="flex-wrap: wrap;">
+          <h2 class="h3">Parcours enregistrés</h2>
+          <a class="btn btn-secondary" href="parcours.html">Nouveau parcours</a>
+        </div>
+        <article class="card card-interactive" data-od-id="journey-active">
+          <div class="row-between" style="flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span class="pill">Actif</span>
+              <h3 style="margin-top: 10px;"><span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span></h3>
+              <p class="meta" style="margin-top: 6px;">Objectif · <span data-bind="goal">Études</span></p>
+            </div>
+            <div class="row" style="gap: 8px;">
+              <a class="btn btn-primary" href="dashboard.html">Ouvrir</a>
+              <a class="btn btn-secondary" href="checklist.html">Checklist</a>
+            </div>
+          </div>
+        </article>
+        <div class="empty" data-od-id="journey-empty-hint">
+          Les parcours supplémentaires apparaîtront ici après enregistrement via l'API (`/journeys`).
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="index.html">Lanceur</a></span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+  <script>
+    document.getElementById("profil-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("p-name").value.trim();
+      if (window.AfriWay) {
+        var prev = AfriWay.loadState();
+        AfriWay.saveState({ user: Object.assign({}, prev.user || {}, { name: name }) });
+        AfriWay.toast("Profil enregistré (local).");
+      }
+      document.querySelectorAll("[data-bind='name']").forEach(function (el) { el.textContent = name; });
+    });
+  </script>
+</body>
+</html>

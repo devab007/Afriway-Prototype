@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- Angular 17+: route '' → AppLauncherComponent (présentation équipe) -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AfriWay — maquette parcours utilisateur pour préparer une mobilité en Afrique de l'Ouest." />
+  <meta name="theme-color" content="#E3F2FD" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>AfriWay · Lanceur maquette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h10l-2-2m2 2-2 2"/><path d="M14 7h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
+        <a href="auth.html">Connexion</a>
+        <a href="dashboard.html">Tableau de bord</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="accueil.html">Ouvrir l'app</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section hero" data-od-id="launcher-hero">
+      <div class="container hero-split">
+        <div class="reveal">
+          <p class="eyebrow">Maquette MVP · Afrique de l'Ouest</p>
+          <h1>Parcours AfriWay, prêt pour la validation équipe.</h1>
+          <p class="lead">Prototype HTML haute fidélité du parcours utilisateur. Palette bleue claire, écrans séparés, interactions simulées avant Angular + Laravel.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="accueil.html">Commencer par l'accueil</a>
+            <a class="btn btn-secondary" href="parcours.html">Aller au choix de parcours</a>
+          </div>
+        </div>
+        <div class="route-visual reveal" aria-label="Carte stylisée corridor régional" data-od-id="launcher-visual">
+          <svg viewBox="0 0 480 300" role="img" aria-label="Cinq pays reliés">
+            <rect width="480" height="300" fill="var(--bg)"/>
+            <circle cx="110" cy="170" r="38" fill="var(--accent)" opacity="0.55"/>
+            <circle cx="220" cy="110" r="34" fill="var(--accent)" opacity="0.7"/>
+            <circle cx="320" cy="160" r="40" fill="var(--accent)" opacity="0.5"/>
+            <circle cx="250" cy="220" r="30" fill="var(--accent)" opacity="0.65"/>
+            <circle cx="380" cy="100" r="28" fill="var(--accent)" opacity="0.45"/>
+            <path d="M110 170 C160 120, 180 120, 220 110 S280 140, 320 160 S360 200, 250 220 S160 200, 110 170" fill="none" stroke="var(--fg)" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.35"/>
+            <text x="96" y="176" font-family="ui-monospace,monospace" font-size="11" fill="var(--fg)">SN</text>
+            <text x="208" y="114" font-family="ui-monospace,monospace" font-size="11" fill="var(--fg)">CI</text>
+            <text x="308" y="166" font-family="ui-monospace,monospace" font-size="11" fill="var(--fg)">ML</text>
+            <text x="238" y="226" font-family="ui-monospace,monospace" font-size="11" fill="var(--fg)">BF</text>
+            <text x="368" y="104" font-family="ui-monospace,monospace" font-size="11" fill="var(--fg)">GN</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="launcher-screens">
+      <div class="container stack" style="gap: 28px;">
+        <div style="max-width: 40ch;">
+          <p class="eyebrow">Écrans prioritaires</p>
+          <h2>Ouvrir un écran de la maquette</h2>
+        </div>
+        <div class="launcher-grid">
+          <a class="launcher-card card-interactive" href="accueil.html" data-od-id="card-accueil">
+            <span class="pill">01</span>
+            <h3>Accueil</h3>
+            <p class="meta">Présentation AfriWay et appel à commencer</p>
+          </a>
+          <a class="launcher-card card-interactive" href="auth.html" data-od-id="card-auth">
+            <span class="pill">02</span>
+            <h3>Inscription / connexion</h3>
+            <p class="meta">Formulaires courts, erreurs utiles</p>
+          </a>
+          <a class="launcher-card card-interactive" href="parcours.html" data-od-id="card-parcours">
+            <span class="pill">03</span>
+            <h3>Pays + objectif</h3>
+            <p class="meta">Départ, destination, motif de mobilité</p>
+          </a>
+          <a class="launcher-card card-interactive" href="dashboard.html" data-od-id="card-dashboard">
+            <span class="pill">04</span>
+            <h3>Tableau de bord</h3>
+            <p class="meta">Résultats personnalisés et assistant</p>
+          </a>
+          <a class="launcher-card card-interactive" href="profil.html" data-od-id="card-profil">
+            <span class="pill">05</span>
+            <h3>Profil / parcours</h3>
+            <p class="meta">Compte et trajectoires enregistrées</p>
+          </a>
+          <a class="launcher-card card-interactive" href="pays.html" data-od-id="card-pays">
+            <span class="pill">06</span>
+            <h3>Fiche pays + modules</h3>
+            <p class="meta">Docs, études, logement, coût, transport</p>
+          </a>
+          <a class="launcher-card card-interactive" href="checklist.html" data-od-id="card-checklist">
+            <span class="pill">07</span>
+            <h3>Checklist</h3>
+            <p class="meta">Suivi des étapes du projet</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · Maquette front 2026</span>
+      <span class="meta">MVP · 5 pays d'Afrique de l'Ouest</span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

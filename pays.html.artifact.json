@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "pays.html",
+  "entry": "pays.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-11T23:35:40.049Z",
+  "updatedAt": "2026-10-11T23:35:40.049Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

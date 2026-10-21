@@ -1,0 +1,10 @@
+{
+  "name": "AfriWay",
+  "short_name": "AfriWay",
+  "description": "Préparer une mobilité en Afrique de l'Ouest",
+  "start_url": "./accueil.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "lang": "fr"
+}

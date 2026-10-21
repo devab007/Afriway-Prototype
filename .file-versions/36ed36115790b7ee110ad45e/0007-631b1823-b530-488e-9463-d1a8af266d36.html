@@ -1,0 +1,222 @@
+<!doctype html>
+<!-- Angular 17+: AccueilComponent / routes/accueil -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AfriWay aide à préparer une mobilité entre pays d'Afrique de l'Ouest selon votre objectif." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>AfriWay · Accueil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell" data-page="accueil">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="accueil.html" aria-current="page">Accueil</a>
+        <a href="auth.html">Connexion</a>
+      </nav>
+      <a class="btn btn-primary topbar-cta" href="inscription.html">Créer un compte</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="hero-stage tex" data-od-id="hero-stage">
+      <div class="container hero-layout">
+        <div class="reveal">
+          <div class="hero-kicker">
+            <span class="pill">Corridor ouest-africain</span>
+            <hr class="arc-line" aria-hidden="true" />
+          </div>
+          <h1 class="h-display">Le fil entre<br />deux <span class="grad-text">pays</span>.</h1>
+          <p class="lead" style="margin-top: 20px;">AfriWay transforme une mobilité floue en plan lisible : corridor, objectif, documents, campus, logement et checklist — un parcours, pas une brochure.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="inscription.html">Créer mon parcours</a>
+            <a class="btn btn-ghost btn-arrow" href="#corridor-globe">Faire tourner le globe</a>
+          </div>
+          <div class="country-rail" aria-label="Pays du corridor">
+            <button type="button" class="country-chip is-on" data-country-code="SN"><strong>Sénégal</strong><span class="meta">SN · Départ</span></button>
+            <button type="button" class="country-chip" data-country-code="CI"><strong>Côte d'Ivoire</strong><span class="meta">CI · Destination</span></button>
+            <button type="button" class="country-chip" data-country-code="ML"><strong>Mali</strong><span class="meta">ML</span></button>
+            <button type="button" class="country-chip" data-country-code="BF"><strong>Burkina Faso</strong><span class="meta">BF</span></button>
+            <button type="button" class="country-chip" data-country-code="GN"><strong>Guinée</strong><span class="meta">GN</span></button>
+          </div>
+        </div>
+
+        <div class="globe-stage reveal" id="corridor-globe" data-od-id="hero-globe" aria-label="Globe 3D du corridor ouest-africain">
+          <span class="globe-hint">Glisser pour tourner</span>
+          <canvas class="globe-canvas" data-globe aria-label="Globe de points et arcs corail"></canvas>
+          <div class="globe-overlay">
+            <span class="pill">5 pays · arcs live</span>
+            <span class="route-badge"><span class="dot" aria-hidden="true"></span><span data-map-label>Sénégal</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Sénégal</span><span>Côte d'Ivoire</span><span>Mali</span><span>Burkina Faso</span><span>Guinée</span>
+        <span>Sénégal</span><span>Côte d'Ivoire</span><span>Mali</span><span>Burkina Faso</span><span>Guinée</span>
+      </div>
+    </div>
+
+    <section class="section" data-od-id="assistant" style="border-top: 1px solid var(--border);">
+      <div class="container grid-2-1">
+        <div class="card ai-shell reveal" data-chat data-lock-when-anon data-od-id="accueil-assistant">
+          <div class="ai-head">
+            <span class="ai-orb" aria-hidden="true"></span>
+            <div style="flex: 1; min-width: 0;">
+              <p class="ai-title">Assistant AfriWay</p>
+              <span class="ai-status">En ligne</span>
+            </div>
+            <div class="chat-modes" role="group" aria-label="Mode de conversation" data-chat-mode>
+              <button type="button" class="chat-mode is-on" data-mode="text" aria-pressed="true">Écrit</button>
+              <button type="button" class="chat-mode" data-mode="voice" aria-pressed="false">Vocal</button>
+            </div>
+          </div>
+          <div class="chat-log" aria-live="polite">
+            <div class="bubble bubble-bot">Je suis l'assistant AfriWay : je réponds à l'écrit et à la voix. Décrivez votre projet de mobilité et je vous guide, étape par étape.</div>
+          </div>
+          <div class="stack" style="gap: 12px;">
+            <div class="chat-chips">
+              <button type="button" class="chat-chip" data-suggest="Quels documents pour un séjour études ?">Documents pour études</button>
+              <button type="button" class="chat-chip" data-suggest="Combien de temps avant le départ faut-il lancer les démarches ?">Délais à anticiper</button>
+              <button type="button" class="chat-chip" data-suggest="Comment choisir un logement proche du campus ?">Choisir un logement</button>
+            </div>
+            <form class="chat-compose">
+              <input class="input" type="text" placeholder="Écrivez votre question…" aria-label="Message à l'assistant" />
+              <button class="btn btn-primary" type="submit" aria-label="Envoyer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12l16-7-7 16-2-6-7-3z"/></svg>
+              </button>
+            </form>
+            <div class="voice-stage" data-voice-stage>
+              <button type="button" class="mic-btn" data-mic aria-pressed="false" aria-label="Parler à l'assistant">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
+              </button>
+              <div class="voice-visualizer" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <p class="voice-hint" data-voice-hint>Appuyez sur le micro et parlez</p>
+            </div>
+          </div>
+          <div class="ai-lock">
+            <div class="ai-lock-card">
+              <div class="ai-lock-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                Connectez-vous pour discuter
+              </div>
+              <p>L'assistant vocal et écrit se débloque une fois votre compte créé. Vous pourrez alors poser vos questions, enregistrer votre parcours et le retrouver à chaque visite.</p>
+              <div class="ai-lock-actions">
+                <a class="btn btn-primary btn-arrow" href="inscription.html">Créer un compte</a>
+                <a class="btn btn-secondary" href="auth.html">Se connecter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card card-soft reveal" data-delay="1" data-od-id="assistant-help">
+          <p class="eyebrow">Parlez ou écrivez</p>
+          <h3 style="margin-bottom: 10px;">Deux façons de poser vos questions</h3>
+          <p style="color: var(--muted); font-size: 15px;">L'assistant vous suit sur tout le corridor. Basculez entre les modes à tout moment.</p>
+          <hr class="rule" style="margin: 22px 0;" />
+          <ul class="stack" style="gap: 12px; font-size: 14px;">
+            <li><strong>Écrit</strong> — tapez votre question, la réponse s'écrit sous vos yeux.</li>
+            <li><strong>Vocal</strong> — appuyez sur le micro et parlez ; l'assistant répond à voix haute, avec une animation pendant qu'il parle.</li>
+            <li><strong>Suggestions</strong> — partez d'une question prête en un clic.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="how-it-works">
+      <div class="container grid-2-1">
+        <div class="reveal">
+          <p class="eyebrow">Comment ça marche</p>
+          <h2>Trois gestes. Un dossier qui avance.</h2>
+          <p class="lead" style="margin-top: 14px;">Chaque écran sert le suivant. Rien de décoratif.</p>
+          <div class="step-rail" style="margin-top: 34px;">
+            <article class="step-item" data-od-id="step-1">
+              <h3>1 · Tracer le corridor</h3>
+              <p>Pays de départ, destination, objectif : études, travail, voyage, installation ou entrepreneuriat.</p>
+            </article>
+            <article class="step-item" data-od-id="step-2">
+              <h3>2 · Lire la fiche pays</h3>
+              <p>Documents, procédures, campus, logement, coût de la vie et transport — dans des modules ciblés.</p>
+            </article>
+            <article class="step-item" data-od-id="step-3">
+              <h3>3 · Cocher et questionner</h3>
+              <p>Checklist vivante et assistant AfriWay pour clarifier chaque étape, du dossier au départ.</p>
+            </article>
+          </div>
+        </div>
+        <aside class="card card-soft reveal" data-delay="1" data-od-id="aside-promise">
+          <p class="eyebrow">Pour qui</p>
+          <h3 style="margin-bottom: 10px;">Étudiants, voyageurs, professionnels</h3>
+          <p style="color: var(--muted); font-size: 15px;">Toute personne qui prépare un déplacement concret entre deux pays du corridor.</p>
+          <hr class="rule" style="margin: 22px 0;" />
+          <p class="meta">Informations vérifiées pour chaque corridor</p>
+          <a class="btn btn-secondary" style="margin-top: 18px;" href="inscription.html">Commencer</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="features" style="border-top: 1px solid var(--border);">
+      <div class="container" style="display: grid; gap: 44px;">
+        <div style="max-width: 34ch;">
+          <p class="eyebrow">Ce que vous obtenez</p>
+          <h2>Un seul fil, six modules.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card card-flat" data-od-id="feature-docs">
+            <p class="meta" style="color: var(--cc);">01</p>
+            <h3 style="margin: 10px 0 8px;">Documents & démarches</h3>
+            <p style="color: var(--muted); font-size: 15px;">La liste des pièces selon le corridor et l'objectif, avec les délais à anticiper.</p>
+          </article>
+          <article class="card card-flat" data-od-id="feature-etudes">
+            <p class="meta" style="color: var(--cc);">02</p>
+            <h3 style="margin: 10px 0 8px;">Campus & formations</h3>
+            <p style="color: var(--muted); font-size: 15px;">Établissements de destination, filtrables, avec les conditions d'admission.</p>
+          </article>
+          <article class="card card-flat" data-od-id="feature-logistique">
+            <p class="meta" style="color: var(--cc);">03</p>
+            <h3 style="margin: 10px 0 8px;">Logement & coût de la vie</h3>
+            <p style="color: var(--muted); font-size: 15px;">Quartiers proches des campus et repères de budget mensuel, sans chiffres inventés.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="cta-band" style="border-top: 1px solid var(--border);">
+      <div class="container reveal" style="display: grid; gap: 22px; align-items: end;">
+        <div style="max-width: 30ch;">
+          <p class="eyebrow">Prêt</p>
+          <h2 class="h-display" style="font-size: clamp(38px, 8vw, 72px);">Passez du vague au plan.</h2>
+        </div>
+        <div class="hero-cta" style="margin-top: 0;">
+          <a class="btn btn-primary" href="inscription.html">Créer un compte</a>
+          <a class="btn btn-secondary" href="auth.html">Se connecter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+          <span class="meta"><a href="auth.html">Connexion</a></span>
+    </div>
+  </footer>
+  <script src="js/globe.js"></script>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

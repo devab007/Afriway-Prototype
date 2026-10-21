@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- Angular 17+: ConnexionComponent — AuthService.login() -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Connexion à AfriWay." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Connexion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell" data-page="auth">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
+        <a href="auth.html" aria-current="page">Connexion</a>
+      </nav>
+      <a class="btn btn-secondary topbar-cta" href="inscription.html">Créer un compte</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <div class="auth-shell" data-od-id="auth">
+      <aside class="auth-visual" data-od-id="auth-visual">
+        <div class="globe-stage is-flat" style="flex: 1; min-height: 300px; border: 0; background: transparent; border-radius: 0;">
+          <span class="globe-hint">Glisser pour tourner</span>
+          <canvas class="globe-canvas" data-globe aria-label="Globe 3D du corridor"></canvas>
+        </div>
+        <div style="margin-top: 28px; max-width: 28ch;">
+          <p class="eyebrow">Bon retour</p>
+          <h2 class="h2">Votre fil vous attend.</h2>
+          <p class="lead" style="margin-top: 10px;">Reprenez votre corridor, votre checklist et vos échanges.</p>
+        </div>
+      </aside>
+
+      <div class="auth-panel reveal" data-auth data-od-id="auth-panel">
+        <p class="eyebrow">Connexion</p>
+        <h1 class="h2" style="margin-bottom: 8px;">Se connecter</h1>
+        <p class="lead" style="margin-bottom: 26px;">Entrez vos identifiants pour retrouver votre parcours.</p>
+
+        <form data-panel="login" class="stack" novalidate>
+          <div class="field">
+            <label for="login-email">E-mail</label>
+            <input class="input" id="login-email" type="email" name="email" required autocomplete="email" placeholder="vous@exemple.sn" />
+            <span class="field-error">Indiquez un e-mail valide.</span>
+          </div>
+          <div class="field">
+            <label for="login-pass">Mot de passe</label>
+            <input class="input" id="login-pass" type="password" name="password" required autocomplete="current-password" placeholder="••••••••" />
+            <span class="field-error">Le mot de passe est requis.</span>
+          </div>
+          <p class="auth-error" hidden></p>
+          <button class="btn btn-primary btn-block" type="submit">Se connecter</button>
+        </form>
+
+        <p class="meta" style="margin-top: 22px; text-align: center;">
+          Pas encore de compte ? <a class="logout-link" href="inscription.html" style="color: var(--accent-ink);">Créer un compte</a>
+        </p>
+
+        <div class="auth-hint">
+          Compte de démonstration — e-mail <strong>demo@afriway.sn</strong> · mot de passe <strong>afriway</strong>.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="accueil.html">Accueil</a></span>
+    </div>
+  </footer>
+  <script src="js/globe.js"></script>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

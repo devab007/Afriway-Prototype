@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "evenement.html",
+  "entry": "evenement.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-12T14:14:37.257Z",
+  "updatedAt": "2026-10-12T14:14:37.257Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

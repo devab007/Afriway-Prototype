@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "parcours.html",
+  "entry": "parcours.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-11T23:34:51.710Z",
+  "updatedAt": "2026-10-11T23:34:51.710Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

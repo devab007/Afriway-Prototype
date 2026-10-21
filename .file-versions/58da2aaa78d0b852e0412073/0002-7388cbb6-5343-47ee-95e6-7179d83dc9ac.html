@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- Angular 17+: InscriptionComponent — AuthService.register() -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Créer un compte AfriWay." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Inscription</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell" data-page="inscription">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
+        <a href="inscription.html" aria-current="page">Inscription</a>
+      </nav>
+      <a class="btn btn-secondary topbar-cta" href="auth.html">Se connecter</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <div class="auth-shell" data-od-id="auth">
+      <aside class="auth-visual" data-od-id="auth-visual">
+        <div class="globe-stage is-flat" style="flex: 1; min-height: 300px; border: 0; background: transparent; border-radius: 0;">
+          <span class="globe-hint">Glisser pour tourner</span>
+          <canvas class="globe-canvas" data-globe aria-label="Globe 3D du corridor"></canvas>
+        </div>
+        <div style="margin-top: 28px; max-width: 28ch;">
+          <p class="eyebrow">Première fois ici</p>
+          <h2 class="h2">Votre fil commence ici.</h2>
+          <p class="lead" style="margin-top: 10px;">Compte, puis corridor, puis checklist — dans cet ordre.</p>
+        </div>
+      </aside>
+
+      <div class="auth-panel reveal" data-auth data-od-id="auth-panel">
+        <p class="eyebrow">Inscription</p>
+        <h1 class="h2" style="margin-bottom: 8px;">Créer un compte</h1>
+        <p class="lead" style="margin-bottom: 26px;">Quelques secondes suffisent pour tracer votre premier corridor.</p>
+
+        <form data-panel="signup" class="stack" novalidate>
+          <div class="field">
+            <label for="signup-name">Nom complet</label>
+            <input class="input" id="signup-name" type="text" name="name" required autocomplete="name" placeholder="Awa Diop" />
+            <span class="field-error">Le nom est requis.</span>
+          </div>
+          <div class="field">
+            <label for="signup-email">E-mail</label>
+            <input class="input" id="signup-email" type="email" name="email" required autocomplete="email" placeholder="vous@exemple.sn" />
+            <span class="field-error">Indiquez un e-mail valide.</span>
+          </div>
+          <div class="field">
+            <label for="signup-pass">Mot de passe</label>
+            <input class="input" id="signup-pass" type="password" name="password" required autocomplete="new-password" minlength="8" placeholder="8 caractères minimum" />
+            <span class="field-error">Choisissez un mot de passe d'au moins 8 caractères.</span>
+          </div>
+          <p class="auth-error" hidden></p>
+          <button class="btn btn-primary btn-block" type="submit">Créer mon compte</button>
+        </form>
+
+        <p class="meta" style="margin-top: 22px; text-align: center;">
+          Déjà un compte ? <a class="logout-link" href="auth.html" style="color: var(--accent-ink);">Se connecter</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="accueil.html">Accueil</a></span>
+    </div>
+  </footer>
+  <script src="js/globe.js"></script>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

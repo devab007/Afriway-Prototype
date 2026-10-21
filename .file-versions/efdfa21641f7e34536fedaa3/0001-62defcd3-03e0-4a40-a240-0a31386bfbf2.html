@@ -1,0 +1,248 @@
+<!doctype html>
+<!-- Angular 17+: EvenementsComponent — GET /events?country= -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Événements à venir dans le corridor ouest-africain : sport, festivals et rendez-vous culturels, et comment y accéder." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Événements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+  <script>try{if(JSON.parse(localStorage.getItem("afriway.state.v1")||"{}").auth!==true){location.replace("auth.html");}}catch(e){location.replace("auth.html");}</script>
+</head>
+<body class="app-shell" data-page="evenement">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="pays.html">Fiche pays</a>
+        <a href="evenement.html" aria-current="page">Événements</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="profil.html">Profil</a>
+      </nav>
+      <a class="btn btn-primary topbar-cta" href="dashboard.html">Board</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="ev-hero" style="padding-bottom: 10px;">
+      <div class="container reveal">
+        <div class="hero-kicker">
+          <span class="pill">Événements</span>
+          <hr class="arc-line" aria-hidden="true" />
+        </div>
+        <h1 class="h1">Voyager pour un événement</h1>
+        <p class="lead" style="margin-top: 12px; max-width: 62ch;">
+          Un match, un festival, une biennale : choisissez un pays, découvrez ce qui arrive, et préparez le
+          déplacement — billets, hébergement, formalités. Puis filez vers la fiche pays pour le détail.
+        </p>
+        <p class="meta" style="margin-top: 18px;">
+          <span data-event-count>00</span> événements à venir · 5 pays · dates annoncées par les organisateurs, susceptibles d'évoluer
+        </p>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="ev-list" style="padding-top: 6px;">
+      <div class="container" data-events>
+        <div class="ev-rail reveal" role="group" aria-label="Filtrer par pays">
+          <button type="button" class="ev-chip is-on" data-event-country="all" aria-pressed="true">Tous les pays</button>
+          <button type="button" class="ev-chip" data-event-country="SN" aria-pressed="false">Sénégal</button>
+          <button type="button" class="ev-chip" data-event-country="CI" aria-pressed="false">Côte d'Ivoire</button>
+          <button type="button" class="ev-chip" data-event-country="ML" aria-pressed="false">Mali</button>
+          <button type="button" class="ev-chip" data-event-country="BF" aria-pressed="false">Burkina Faso</button>
+          <button type="button" class="ev-chip" data-event-country="GN" aria-pressed="false">Guinée</button>
+        </div>
+
+        <div class="ev-grid reveal" data-event-grid data-event-render></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><button type="button" class="logout-link" data-logout>Se déconnecter</button></span>
+    </div>
+  </footer>
+
+  <div class="ev-modal" data-event-modal hidden role="dialog" aria-modal="true" aria-labelledby="ev-title">
+    <div class="ev-dialog">
+      <button type="button" class="ev-close" data-ev-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <p class="eyebrow" data-ev-kicker>Événement</p>
+      <h3 id="ev-title" class="h2" data-ev-title>…</h3>
+      <div class="ev-meta-row">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>
+          <span data-ev-date>…</span>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span data-ev-place>…</span>
+        </span>
+      </div>
+      <p class="lead" style="font-size: 16px;" data-ev-desc>…</p>
+      <div class="ev-field">
+        <h4>Comment y accéder</h4>
+        <p data-ev-access>…</p>
+      </div>
+      <div class="ev-field">
+        <h4>Comment le suivre</h4>
+        <p data-ev-watch>…</p>
+      </div>
+      <div class="ev-actions">
+        <a class="btn btn-primary btn-arrow" data-ev-link href="pays.html">Voir la fiche pays</a>
+        <button type="button" class="btn btn-secondary" data-ev-close>Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" data-events-json>
+  [
+    {
+      "id": "joj-dakar-2026", "code": "SN", "countryName": "Sénégal", "featured": true,
+      "title": "Jeux Olympiques de la Jeunesse · Dakar 2026",
+      "date": "31 octobre — 13 novembre 2026", "dateLabel": "Oct — Nov 2026",
+      "place": "Dakar, Sénégal", "kicker": "Sport · Dakar 2026",
+      "short": "Premiers Jeux Olympiques de la Jeunesse organisés en Afrique : sports urbains, arènes de Diamniadio et ambiance de la corniche.",
+      "desc": "Dakar accueille la première édition africaine des Jeux Olympiques de la Jeunesse. Le programme mêle sports urbains, disciplines olympiques classiques et animations dans toute la ville — une occasion rare de vivre un grand rendez-vous international au Sénégal.",
+      "access": "Réservez tôt : les hébergements sont concentrés à Dakar et autour de Diamniadio, desservis par le train express et des navettes entre sites. Selon votre pays de départ, vérifiez les formalités auprès de la représentation du Sénégal. Les épreuves se répartissent sur plusieurs sites : organisez vos journées par créneau.",
+      "watch": "Épreuves diffusées en direct par les chaînes nationales partenaires, sur les plateformes du mouvement olympique et via les rediffusions en ligne des fédérations."
+    },
+    {
+      "id": "fesman", "code": "SN", "countryName": "Sénégal",
+      "title": "Festival mondial des arts nègres",
+      "date": "Édition à confirmer", "dateLabel": "À confirmer",
+      "place": "Dakar, Sénégal", "kicker": "Culture · Dakar",
+      "short": "Grande biennale des arts, de la musique et de la pensée, au cœur de Dakar.",
+      "desc": "Le Festival mondial des arts nègres rassemble artistes, chercheurs et publics autour d'expositions, de concerts et de rencontres. La programmation et les dates sont annoncées par les organisateurs.",
+      "access": "Capitale bien desservie par les vols ; hôtels du Plateau et des Almadies. Vérifiez la programmation officielle avant de réserver votre séjour.",
+      "watch": "Concerts et cérémonies généralement retransmis par les médias nationaux et les pages officielles du festival."
+    },
+    {
+      "id": "magal-touba", "code": "SN", "countryName": "Sénégal",
+      "title": "Grand Magal de Touba",
+      "date": "Date lunaire — variable", "dateLabel": "Date variable",
+      "place": "Touba, Sénégal", "kicker": "Pèlerinage · Touba",
+      "short": "Grand rassemblement religieux de la confrérie mouride, dans la ville sainte de Touba.",
+      "desc": "Le Grand Magal rassemble des millions de fidèles à Touba. La date suit le calendrier lunaire et change chaque année.",
+      "access": "Prévoyez un hébergement plusieurs semaines à l'avance, le site étant très fréquenté. Renseignez-vous sur la date exacte auprès des organisateurs et sur les moyens de transport depuis Dakar.",
+      "watch": "Suivi via les radios et télévisions nationales ainsi que les pages communautaires mourides."
+    },
+    {
+      "id": "saint-louis-jazz", "code": "SN", "countryName": "Sénégal",
+      "title": "Saint-Louis Jazz",
+      "date": "Mai 2027", "dateLabel": "Mai 2027",
+      "place": "Saint-Louis, Sénégal", "kicker": "Musique · Saint-Louis",
+      "short": "Festival de jazz de la ville coloniale, entre fleuve et océan.",
+      "desc": "L'un des rendez-vous de jazz les plus anciens d'Afrique se tient chaque année à Saint-Louis. La programmation est confirmée en début d'année.",
+      "access": "Saint-Louis se rejoint depuis Dakar en voiture, en bus ou en taxi-brousse. Réservez un hôtel dans l'île historique pendant le festival.",
+      "watch": "Diffusion par les chaînes culturelles et les comptes officiels du festival."
+    },
+    {
+      "id": "masa-abidjan", "code": "CI", "countryName": "Côte d'Ivoire",
+      "title": "MASA · Marché des Arts du Spectacle d'Abidjan",
+      "date": "Prochaine édition à confirmer", "dateLabel": "À confirmer",
+      "place": "Abidjan, Côte d'Ivoire", "kicker": "Spectacle vivant · Abidjan",
+      "short": "Vitrine des arts de la scène africains : théâtre, danse, musique et formations.",
+      "desc": "Le MASA réunit compagnies et professionnels du spectacle vivant africain à Abidjan pour une programmation dense de spectacles et de rencontres.",
+      "access": "Abidjan est bien reliée par vols. Logez au Plateau, à Cocody ou à Marcory selon les salles. Vérifiez le calendrier sur le site du MASA.",
+      "watch": "Certains spectacles et cérémonies sont retransmis par les médias ivoiriens partenaires."
+    },
+    {
+      "id": "rallye-ci", "code": "CI", "countryName": "Côte d'Ivoire",
+      "title": "Rallye international de Côte d'Ivoire",
+      "date": "Automne — date à confirmer", "dateLabel": "Automne 2026",
+      "place": "Abidjan, Côte d'Ivoire", "kicker": "Sport auto · Abidjan",
+      "short": "Épreuve du championnat africain de rallye, sur routes et pistes ivoiriennes.",
+      "desc": "Le rallye traverse des spéciales autour d'Abidjan et dans l'intérieur du pays, avec une forte affluence de spectateurs locaux.",
+      "access": "Les zones de départ et d'arrivée sont proches d'Abidjan ; suivez le road-book officiel pour les points d'observation.",
+      "watch": "Résultats et images sur les chaînes sportives et les réseaux officiels de l'épreuve."
+    },
+    {
+      "id": "festival-niger", "code": "ML", "countryName": "Mali",
+      "title": "Festival sur le Niger",
+      "date": "Février 2027", "dateLabel": "Février 2027",
+      "place": "Ségou, Mali", "kicker": "Musique & arts · Ségou",
+      "short": "Festival au bord du fleuve Niger : concerts, pirogues et arts visuels à Ségou.",
+      "desc": "Chaque année, Ségou accueille musiciens, plasticiens et visiteurs pour plusieurs jours de concerts et d'ateliers au bord du Niger.",
+      "access": "Ségou se rejoint depuis Bamako par la route (environ quatre heures). Réservez tôt, les hébergements affichent complet pendant le festival.",
+      "watch": "Comptes officiels du festival et radios culturelles régionales."
+    },
+    {
+      "id": "arts-ngoni", "code": "ML", "countryName": "Mali",
+      "title": "Festival des arts N'goni",
+      "date": "Date à confirmer", "dateLabel": "À confirmer",
+      "place": "Bamako, Mali", "kicker": "Musique · Bamako",
+      "short": "Célébration du n'goni, instrument emblématique des griots mandingues.",
+      "desc": "Concerts, contes et transmission autour du n'goni, entre grandes voix et jeunes talents du mandingue.",
+      "access": "Bamako dispose de vols régionaux et internationaux ; logez près des salles de concert du district.",
+      "watch": "Diffusions sur les médias culturels maliens."
+    },
+    {
+      "id": "siaO-2026", "code": "BF", "countryName": "Burkina Faso",
+      "title": "SIAO · Salon international de l'artisanat",
+      "date": "Octobre — novembre 2026", "dateLabel": "Oct — Nov 2026",
+      "place": "Ouagadougou, Burkina Faso", "kicker": "Artisanat · Ouagadougou",
+      "short": "Le grand rendez-vous de l'artisanat ouest-africain, sur le site du SIAO.",
+      "desc": "Artisans, coopératives et acheteurs se retrouvent au SIAO pour des jours d'exposition, de défilés de mode et de démonstrations de métiers.",
+      "access": "Accès payant au salon ; Ouagadougou se rejoint par vols régionaux. Vérifiez les dates exactes auprès des organisateurs.",
+      "watch": "Couverture par les médias nationaux burkinabè et les plateformes du salon."
+    },
+    {
+      "id": "fespaco-2027", "code": "BF", "countryName": "Burkina Faso",
+      "title": "FESPACO · Festival panafricain du cinéma",
+      "date": "Février — mars 2027", "dateLabel": "Fév — Mar 2027",
+      "place": "Ouagadougou, Burkina Faso", "kicker": "Cinéma · Ouagadougou",
+      "short": "La plus grande biennale du cinéma africain : projections, marché et montée des marches.",
+      "desc": "Le FESPACO réunit cinéastes, producteurs et publics du continent pour une semaine de projections et de rencontres à Ouagadougou. Il se tient tous les deux ans, les années impaires.",
+      "access": "Ouagadougou est reliée par vols depuis les capitales voisines. Réservez hôtel et accréditation à l'avance : la ville se remplit vite.",
+      "watch": "Cérémonies et remises de prix diffusées par les médias partenaires ; certaines sélections circulent en ligne."
+    },
+    {
+      "id": "snc-bobo", "code": "BF", "countryName": "Burkina Faso",
+      "title": "Semaine nationale de la culture",
+      "date": "Mars 2027", "dateLabel": "Mars 2027",
+      "place": "Bobo-Dioulasso, Burkina Faso", "kicker": "Culture · Bobo-Dioulasso",
+      "short": "Panthéon des cultures burkinabè : danses, masques, musique et artisanat à Bobo.",
+      "desc": "La SNC fait de Bobo-Dioulasso la vitrine des cultures du Burkina, entre parades de masques, concerts et expositions.",
+      "access": "Bobo-Dioulasso se rejoint depuis Ouagadougou par la route ou par vols intérieurs. Réservez votre hébergement pour la semaine.",
+      "watch": "Retransmis par la télévision nationale et les médias régionaux."
+    },
+    {
+      "id": "danse-conakry", "code": "GN", "countryName": "Guinée",
+      "title": "Festival international de danse de Conakry",
+      "date": "Avril 2027", "dateLabel": "Avril 2027",
+      "place": "Conakry, Guinée", "kicker": "Danse · Conakry",
+      "short": "Compagnies et écoles de danse se retrouvent le long de l'Atlantique.",
+      "desc": "Ateliers, spectacles et rencontres réunissent danseurs et chorégraphes de la sous-région à Conakry.",
+      "access": "Conakry se rejoint par vols régionaux ; logez près des salles du centre-ville. Vérifiez le programme officiel.",
+      "watch": "Extraits et captations diffusés par les médias culturels guinéens."
+    },
+    {
+      "id": "nuit-djembe", "code": "GN", "countryName": "Guinée",
+      "title": "Nuit du djembé",
+      "date": "Date à confirmer", "dateLabel": "À confirmer",
+      "place": "Conakry, Guinée", "kicker": "Percussions · Conakry",
+      "short": "Percussions, danses et veillée collective autour du djembé.",
+      "desc": "Une soirée de percussions guinéennes, entre maîtres batteurs et rassemblement populaire.",
+      "access": "Événement généralement en plein air ; renseignez-vous localement sur le lieu et l'horaire.",
+      "watch": "Couverture par les radios et réseaux culturels locaux."
+    }
+  ]
+  </script>
+
+  <script src="js/afriway.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "checklist.html",
+  "entry": "checklist.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-11T23:35:32.721Z",
+  "updatedAt": "2026-10-11T23:35:32.721Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

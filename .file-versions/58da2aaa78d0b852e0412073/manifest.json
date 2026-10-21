@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "fileName": "inscription.html",
+  "entries": [
+    {
+      "id": "445fa60f-b57f-4ffd-aebc-64965585f5c7",
+      "fileName": "inscription.html",
+      "version": 1,
+      "label": "Version 1",
+      "createdAt": 1791766119632,
+      "source": "ai",
+      "prompt": "c'est bien mais y'a certains chose à corriger la page fiche pays n'est pas complétement responsive surtout au niveau du globe meme chose pour la page accueil parfois c'est responsive parfois non aussi pas besoin de préciser dans l'app que c'est un prototype ou mettre de texte indiquant que c'est une maquette aussi la page connexion/inscription y'a deux parties une pour la connexion et une pour l'inscription c'est pas user friendly sépare les le tableau de bord peut etre amélioré ici on a juste des containers rends le meilleurs plus structuré et dynamique aussi dans cette meme page tu ajoute une animation et un container principal pour pouvoir parler avec l'ia en y mettant une animation et tout quand l'ia parle après le reste tu mets les choses à mettre fiche pays le globe rends le responsive ainsi qu'au début y'a des choses non responsives profil peut etre rendu plus stylé aussi mais c'est déjà bien le bouton déconnecter le cacher dans profil ça doit pas etre trop visible pour des soucis d'ux/ui",
+      "size": 4414,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0001-445fa60f-b57f-4ffd-aebc-64965585f5c7.html",
+      "promptSource": "message"
+    },
+    {
+      "id": "7388cbb6-5343-47ee-95e6-7179d83dc9ac",
+      "fileName": "inscription.html",
+      "version": 2,
+      "label": "Version 2",
+      "createdAt": 1791814564981,
+      "source": "ai",
+      "prompt": "Great maintenant y'a juste des choses à rectifier j'aimerais qu'il y'ai une certaine cohérence entre les pages il faut d'abord se connecter ou s'inscrire pour accéder à certaines pages pas besoin de base de données juste mets une identifiant et mdp par défaut vu que c'est juste une maquette il faut que le flow soit simple et cohérent avant l'inscription on ne voit que la page d'accueil connexion et inscription puis après authentification on accède aux autres pages pour la page d'accueil présente juste l'ia dis qu'une ia vocal/texte est intégré on peut pas directement interagir avec tant qu'on s'est pas authentifié\naussi j'aimerais que tu ajoute une page événement (avec des animations) pour ceux qui veulent voyager dans un pays à l'occasion d'un événement comme les jeux olympiques de la jeunesse au sénégal donc on aura une page qui va nous présenter les événements à venir pour chaque pays séléctionné et après avoir cliqué dessus on aura des infos sur l'événements et quelques brefs infos sur comment y accéder et pouvoir le regarder puis un bouton nous redirigeant sur la page fiche pays pour plus d'infos",
+      "size": 4451,
+      "mime": "text/html; charset=utf-8",
+      "kind": "html",
+      "contentPath": "0002-7388cbb6-5343-47ee-95e6-7179d83dc9ac.html",
+      "promptSource": "message"
+    }
+  ]
+}

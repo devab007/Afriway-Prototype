@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "auth.html",
+  "entry": "auth.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-11T23:34:37.640Z",
+  "updatedAt": "2026-10-11T23:34:37.640Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

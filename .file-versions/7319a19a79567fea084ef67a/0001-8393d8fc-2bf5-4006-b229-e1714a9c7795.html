@@ -1,0 +1,93 @@
+<!doctype html>
+<!-- Angular 17+: AuthComponent with login/signup tabs + AuthService → Laravel API -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Connexion et inscription AfriWay." />
+  <meta name="theme-color" content="#E3F2FD" />
+  <title>AfriWay · Connexion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+</head>
+<body class="app-shell">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topnav" data-od-id="topnav">
+    <div class="container topnav-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12h10l-2-2m2 2-2 2"/><path d="M14 7h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav aria-label="Navigation principale">
+        <a href="accueil.html">Accueil</a>
+        <a href="auth.html" aria-current="page">Compte</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="accueil.html">Retour</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="auth" style="padding-top: 24px;">
+      <div class="container">
+        <div class="card auth-panel reveal" data-auth data-od-id="auth-panel">
+          <p class="eyebrow">Espace utilisateur</p>
+          <h1 class="h2" style="margin-bottom: 8px;">Accéder à AfriWay</h1>
+          <p class="lead" style="margin-bottom: 24px;">Même écran pour se connecter ou créer un compte. Les appels API Laravel viendront remplacer la simulation.</p>
+
+          <div class="auth-switch">
+            <button type="button" class="btn btn-primary" data-auth-tab="login">Connexion</button>
+            <button type="button" class="btn btn-secondary" data-auth-tab="signup">Inscription</button>
+          </div>
+
+          <form data-panel="login" class="stack" novalidate>
+            <div class="field">
+              <label for="login-email">E-mail</label>
+              <input class="input" id="login-email" type="email" name="email" required autocomplete="email" placeholder="vous@exemple.sn" />
+              <span class="field-error">Indiquez un e-mail valide.</span>
+            </div>
+            <div class="field">
+              <label for="login-pass">Mot de passe</label>
+              <input class="input" id="login-pass" type="password" name="password" required autocomplete="current-password" placeholder="••••••••" />
+              <span class="field-error">Le mot de passe est requis.</span>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Se connecter</button>
+          </form>
+
+          <form data-panel="signup" class="stack" hidden novalidate>
+            <div class="field">
+              <label for="signup-name">Nom complet</label>
+              <input class="input" id="signup-name" type="text" name="name" required autocomplete="name" placeholder="Awa Diop" />
+              <span class="field-error">Le nom est requis.</span>
+            </div>
+            <div class="field">
+              <label for="signup-email">E-mail</label>
+              <input class="input" id="signup-email" type="email" name="email" required autocomplete="email" placeholder="vous@exemple.sn" />
+              <span class="field-error">Indiquez un e-mail valide.</span>
+            </div>
+            <div class="field">
+              <label for="signup-pass">Mot de passe</label>
+              <input class="input" id="signup-pass" type="password" name="password" required autocomplete="new-password" minlength="8" placeholder="8 caractères minimum" />
+              <span class="field-error">Choisissez un mot de passe d'au moins 8 caractères.</span>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Créer mon compte</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta">Auth simulée · JWT Laravel à brancher</span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+</body>
+</html>

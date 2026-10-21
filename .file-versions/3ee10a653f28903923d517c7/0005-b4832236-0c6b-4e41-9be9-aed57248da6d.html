@@ -1,0 +1,178 @@
+<!doctype html>
+<!-- Angular 17+: ProfilComponent — UserProfile + saved Journeys list -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Profil utilisateur et parcours enregistrés AfriWay." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Profil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+  <script>try{if(JSON.parse(localStorage.getItem("afriway.state.v1")||"{}").auth!==true){location.replace("auth.html");}}catch(e){location.replace("auth.html");}</script>
+</head>
+<body class="app-shell" data-page="profil">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="pays.html">Fiche pays</a>
+        <a href="evenement.html">Événements</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="profil.html" aria-current="page">Profil</a>
+      </nav>
+      <a class="btn btn-primary topbar-cta" href="dashboard.html">Mon board</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="profil-header" style="padding-bottom: 16px;">
+      <div class="container">
+        <div class="card reveal" style="padding: 0; overflow: hidden;">
+          <div class="profile-cover tex" aria-hidden="true"></div>
+          <div class="profile-head">
+            <div class="avatar" id="profil-avatar" aria-hidden="true">AD</div>
+            <div class="profile-id">
+              <span class="pill">Membre</span>
+              <h1 class="h2" style="margin-top: 10px;" data-bind="name">Awa Diop</h1>
+              <p class="meta" style="margin-top: 4px;"><span data-bind="email">awa@exemple.sn</span> · <span id="profil-city">Dakar</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-row reveal" data-delay="1" style="margin-top: 20px;">
+          <div class="stat">
+            <p class="stat-label">Parcours actifs</p>
+            <p class="stat-value">01</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Corridor</p>
+            <p class="stat-value"><span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span></p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Étapes cochées</p>
+            <p class="stat-value"><span id="profil-done">0</span> / 7</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="profil-edit" style="padding-top: 0;">
+      <div class="container grid-1-2 reveal">
+        <aside class="card card-soft" data-od-id="profil-summary">
+          <p class="eyebrow">Votre identité</p>
+          <h2 class="h3" style="margin-bottom: 12px;">Un parcours à votre nom</h2>
+          <p style="color: var(--muted); font-size: 15px;">Ces informations personnalisent vos modules et vos échanges avec l'assistant.</p>
+          <hr class="rule" style="margin: 22px 0;" />
+          <ul class="stack" style="gap: 10px; font-size: 14px;">
+            <li class="row-between"><span class="meta">Objectif</span><strong><span data-bind="goal">Études</span></strong></li>
+            <li class="row-between"><span class="meta">Destination</span><strong><span data-bind="to">Côte d'Ivoire</span></strong></li>
+            <li class="row-between"><span class="meta">Départ</span><strong><span data-bind="from">Sénégal</span></strong></li>
+          </ul>
+        </aside>
+
+        <div class="stack" style="gap: 16px;">
+          <div>
+            <p class="eyebrow">Compte</p>
+            <h2>Modifier le profil</h2>
+          </div>
+          <form class="card stack" id="profil-form" data-od-id="profil-form">
+            <div class="grid-2">
+              <div class="field">
+                <label for="p-name">Nom affiché</label>
+                <input class="input" id="p-name" name="name" value="Awa Diop" />
+              </div>
+              <div class="field">
+                <label for="p-city">Ville actuelle</label>
+                <input class="input" id="p-city" name="city" value="Dakar" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="p-bio">Note personnelle</label>
+              <textarea class="textarea" id="p-bio" name="bio" placeholder="Ex. Départ prévu pour la rentrée…">Candidature études à Abidjan, départ envisagé pour la rentrée.</textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" style="align-self: start;">Enregistrer le profil</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="parcours-list" style="border-top: 1px solid var(--border);">
+      <div class="container stack reveal" style="gap: 16px;">
+        <div class="row-between" style="flex-wrap: wrap;">
+          <h2 class="h3">Parcours enregistrés</h2>
+          <a class="btn btn-secondary" href="parcours.html">Nouveau parcours</a>
+        </div>
+        <article class="card card-interactive" data-od-id="journey-active">
+          <div class="row-between" style="flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span class="pill">Actif</span>
+              <h3 style="margin-top: 12px;"><span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span></h3>
+              <p class="meta" style="margin-top: 6px;">Objectif · <span data-bind="goal">Études</span></p>
+            </div>
+            <div class="row" style="gap: 8px; flex-wrap: wrap;">
+              <a class="btn btn-primary" href="dashboard.html">Ouvrir</a>
+              <a class="btn btn-secondary" href="checklist.html">Checklist</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="container" style="display: flex; justify-content: flex-end; padding-bottom: 8px;">
+          <a class="logout-link" href="accueil.html" data-logout>Se déconnecter</a>
+    </div>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="index.html">Tous les écrans</a></span>
+    </div>
+  </footer>
+  <script src="js/afriway.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById("profil-form");
+      if (!form) return;
+      var nameEl = document.getElementById("p-name");
+      var cityEl = document.getElementById("p-city");
+      var avatar = document.getElementById("profil-avatar");
+      var city = document.getElementById("profil-city");
+
+      function initials(name) {
+        return name.split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w.charAt(0).toUpperCase(); }).join("") || "A";
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = nameEl.value.trim() || "Awa Diop";
+        var ville = cityEl.value.trim() || "Dakar";
+        if (window.AfriWay) {
+          var prev = AfriWay.loadState();
+          AfriWay.saveState({ user: Object.assign({}, prev.user || {}, { name: name, city: ville }) });
+          AfriWay.toast("Profil enregistré.");
+        }
+        document.querySelectorAll("[data-bind='name']").forEach(function (el) { el.textContent = name; });
+        if (avatar) avatar.textContent = initials(name);
+        if (city) city.textContent = ville;
+      });
+
+      var state = window.AfriWay ? AfriWay.loadState() : {};
+      var done = (state.checklist || []).length;
+      var doneEl = document.getElementById("profil-done");
+      if (doneEl) doneEl.textContent = String(done);
+      if (avatar) avatar.textContent = initials((state.user && state.user.name) || "Awa Diop");
+    })();
+  </script>
+</body>
+</html>

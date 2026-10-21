@@ -1,0 +1,335 @@
+<!doctype html>
+<!-- Angular 17+: PaysDetailComponent + child modules via router tabs -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fiche pays AfriWay : documents, études, logement, coût, transport." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>AfriWay · Fiche pays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/afriway.css" />
+  <script>try{if(JSON.parse(localStorage.getItem("afriway.state.v1")||"{}").auth!==true){location.replace("auth.html");}}catch(e){}</script>
+</head>
+<body class="app-shell" data-page="pays">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <header class="topbar" data-od-id="topnav">
+    <div class="container topbar-inner">
+      <a class="logo" href="accueil.html" data-od-id="logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>
+        </span>
+        AfriWay
+      </a>
+      <nav class="topbar-nav" aria-label="Navigation principale">
+        <a href="dashboard.html">Tableau de bord</a>
+        <a href="pays.html" aria-current="page">Fiche pays</a>
+        <a href="evenement.html">Événements</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="profil.html">Profil</a>
+      </nav>
+      <a class="btn btn-primary topbar-cta" href="checklist.html">Checklist</a>
+    </div>
+  </header>
+
+  <main id="content" class="app-main">
+    <section class="section" data-od-id="pays-hero" style="padding-bottom: 8px;">
+      <div class="container reveal">
+        <div class="hero-kicker">
+          <span class="pill">Destination</span>
+          <hr class="arc-line" aria-hidden="true" />
+        </div>
+        <div class="hero-layout" style="align-items: center;">
+          <div>
+            <h1 class="h1"><span data-bind="to">Côte d'Ivoire</span></h1>
+            <p class="lead" style="margin-top: 12px;">Corridor <span data-bind="from">Sénégal</span> → <span data-bind="to">Côte d'Ivoire</span> · objectif <span data-bind="goal">Études</span>.</p>
+            <div class="country-rail" style="margin-top: 22px;">
+              <button type="button" class="country-chip" data-country-code="SN"><strong>Sénégal</strong><span class="meta">Départ</span></button>
+              <button type="button" class="country-chip is-on" data-country-code="CI"><strong>Côte d'Ivoire</strong><span class="meta">Focus</span></button>
+              <button type="button" class="country-chip" data-country-code="ML"><strong>Mali</strong><span class="meta">ML</span></button>
+              <button type="button" class="country-chip" data-country-code="BF"><strong>Burkina Faso</strong><span class="meta">BF</span></button>
+              <button type="button" class="country-chip" data-country-code="GN"><strong>Guinée</strong><span class="meta">GN</span></button>
+            </div>
+          </div>
+          <div class="globe-stage reveal" data-delay="1" data-od-id="pays-globe" aria-label="Globe destination">
+            <span class="globe-hint">Glisser pour tourner</span>
+            <canvas class="globe-canvas" data-globe aria-label="Globe 3D de la destination"></canvas>
+            <div class="globe-overlay">
+              <span class="pill">Focus destination</span>
+              <span class="route-badge"><span class="dot"></span><span data-map-label>Côte d'Ivoire</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="pays-modules" style="padding-top: 8px;" data-tabs>
+      <div class="container">
+        <div class="tabs" role="tablist" aria-label="Modules pays">
+          <button class="tab" role="tab" id="tab-docs" aria-selected="true" aria-controls="panel-docs">Documents</button>
+          <button class="tab" role="tab" id="tab-admin" aria-selected="false" aria-controls="panel-admin">Procédures</button>
+          <button class="tab" role="tab" id="tab-etudes" aria-selected="false" aria-controls="panel-etudes">Études</button>
+          <button class="tab" role="tab" id="tab-logement" aria-selected="false" aria-controls="panel-logement">Logement</button>
+          <button class="tab" role="tab" id="tab-cout" aria-selected="false" aria-controls="panel-cout">Coût de la vie</button>
+          <button class="tab" role="tab" id="tab-transport" aria-selected="false" aria-controls="panel-transport">Transport</button>
+        </div>
+
+        <div class="tab-panel card reveal" role="tabpanel" id="panel-docs" aria-labelledby="tab-docs" data-od-id="panel-docs">
+          <h2 class="h3" style="margin-bottom: 12px;">Documents & pièces</h2>
+          <p class="lead" style="margin-bottom: 20px;">Le dossier à réunir pour votre corridor et votre objectif, avec le bon moment pour chaque pièce.</p>
+          <div class="table-scroll">
+            <table class="ds-table">
+              <thead>
+                <tr><th>Pièce</th><th>Usage</th><th class="num-col">Quand</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Passeport valide</td><td>Entrée et séjour</td><td class="num-col">Avant le départ</td></tr>
+                <tr><td>Attestation d'inscription</td><td>Objectif études</td><td class="num-col">Après admission</td></tr>
+                <tr><td>Preuve de ressources</td><td>Titre / visa</td><td class="num-col">Avant le rendez-vous</td></tr>
+                <tr><td>Certificat médical</td><td>Selon procédure</td><td class="num-col">Selon le pays</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-admin" aria-labelledby="tab-admin" hidden data-od-id="panel-admin">
+          <h2 class="h3" style="margin-bottom: 12px;">Procédures administratives</h2>
+          <div class="step-rail" style="margin-top: 8px;">
+            <article class="step-item">
+              <h3>Avant le départ</h3>
+              <p>Vérifiez les conditions d'entrée pour votre couple pays / objectif et anticipez le rendez-vous consulaire.</p>
+            </article>
+            <article class="step-item">
+              <h3>À l'arrivée</h3>
+              <p>Enregistrement local, assurance et ouverture de compte si besoin — tout est listé étape par étape.</p>
+            </article>
+            <article class="step-item">
+              <h3>Contacts utiles</h3>
+              <p>Ambassade, campus et services étudiants réunis au même endroit pour ne rien chercher deux fois.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-etudes" aria-labelledby="tab-etudes" hidden data-od-id="panel-etudes">
+          <div class="row-between" style="margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <h2 class="h3">Études & formations</h2>
+            <input class="input" style="max-width: 260px;" type="search" data-filter-input placeholder="Filtrer un établissement…" aria-label="Filtrer établissements" />
+          </div>
+          <div data-filter-scope class="stack" style="gap: 10px;">
+            <article class="card card-soft" data-filter-item="université félix houphouët-boigny abidjan" data-od-id="uni-1" style="padding: 16px;">
+              <div class="row-between" style="gap: 12px; flex-wrap: wrap;">
+                <div>
+                  <h3 style="font-size: 16px;">Université Félix Houphouët-Boigny</h3>
+                  <p class="meta" style="margin-top: 4px;">Abidjan · publique · admissions à confirmer auprès de l'établissement</p>
+                </div>
+                <span class="tag">Enseignement supérieur</span>
+              </div>
+            </article>
+            <article class="card card-soft" data-filter-item="inphb yamoussoukro ingénierie" data-od-id="uni-2" style="padding: 16px;">
+              <div class="row-between" style="gap: 12px; flex-wrap: wrap;">
+                <div>
+                  <h3 style="font-size: 16px;">INP-HB</h3>
+                  <p class="meta" style="margin-top: 4px;">Yamoussoukro · ingénierie · admissions à confirmer auprès de l'établissement</p>
+                </div>
+                <span class="tag">École</span>
+              </div>
+            </article>
+            <p class="meta">D'autres établissements sont suggérés selon votre objectif.</p>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-logement" aria-labelledby="tab-logement" hidden data-od-id="panel-logement">
+          <h2 class="h3" style="margin-bottom: 12px;">Logement</h2>
+          <div class="grid-2">
+            <article class="card card-soft">
+              <h3 style="font-size: 16px;">Cités / campus</h3>
+              <p style="color: var(--muted); margin-top: 8px; font-size: 15px;">Résidences étudiantes proches des campus, souvent la solution la plus simple pour un premier séjour.</p>
+            </article>
+            <article class="card card-soft">
+              <h3 style="font-size: 16px;">Location privée</h3>
+              <p style="color: var(--muted); margin-top: 8px; font-size: 15px;">Appartements et colocations en ville — vérifiez la distance au campus avant de signer.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-cout" aria-labelledby="tab-cout" hidden data-od-id="panel-cout">
+          <h2 class="h3" style="margin-bottom: 12px;">Coût de la vie</h2>
+          <p class="lead" style="margin-bottom: 16px;">Repères de budget utiles pour préparer votre séjour, avec les postes qui pèsent le plus.</p>
+          <div class="table-scroll">
+            <table class="ds-table">
+              <thead><tr><th>Poste</th><th class="num-col">Ce qui fait varier le budget</th></tr></thead>
+              <tbody>
+                <tr><td>Logement étudiant</td><td class="num-col">Campus ou ville, colocation</td></tr>
+                <tr><td>Alimentation</td><td class="num-col">Marché ou restauration</td></tr>
+                <tr><td>Transport local</td><td class="num-col">Distance au campus, abonnements</td></tr>
+                <tr><td>Connexion & frais divers</td><td class="num-col">Forfaits mobiles, services bancaires</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-panel card" role="tabpanel" id="panel-transport" aria-labelledby="tab-transport" hidden data-od-id="panel-transport">
+          <h2 class="h3" style="margin-bottom: 12px;">Transport & infos pratiques</h2>
+          <ul class="stack" style="gap: 12px; color: var(--muted);">
+            <li><strong style="color: var(--fg);">Arrivée aérienne</strong> — aéroport international desservi par les vols régionaux</li>
+            <li><strong style="color: var(--fg);">Transport urbain</strong> — bus, taxis et applications de VTC</li>
+            <li><strong style="color: var(--fg);">Liaisons régionales</strong> — bus et trains vers les pays voisins</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="profil" data-od-id="pays-profil" style="border-top: 1px solid var(--border);">
+      <div class="container stack reveal" style="gap: 18px;">
+        <div>
+          <p class="eyebrow">Selon votre profil</p>
+          <h2>Des informations adaptées à votre situation</h2>
+          <p class="lead" style="margin-top: 8px;">Choisissez votre profil : le contenu se met à jour automatiquement.</p>
+        </div>
+
+        <div class="choice-grid" data-choice-group="profil" role="group" aria-label="Profil de voyageur" data-profile-choice>
+          <button type="button" class="choice" data-choice="etudiant" aria-pressed="true">
+            <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c0 1 2.5 3 5 3s5-2 5-3v-5"/></svg></span>
+            <strong>Étudiant</strong><span>Campus, vie étudiante</span>
+          </button>
+          <button type="button" class="choice" data-choice="touriste" aria-pressed="false">
+            <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l2-3h6l2 3h3v12H4V8z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
+            <strong>Touriste</strong><span>Lieux, séjours</span>
+          </button>
+          <button type="button" class="choice" data-choice="visiteur" aria-pressed="false">
+            <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/></svg></span>
+            <strong>Visiteur</strong><span>Courte durée, famille</span>
+          </button>
+          <button type="button" class="choice" data-choice="professionnel" aria-pressed="false">
+            <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+            <strong>Professionnel</strong><span>Affaires, contrat</span>
+          </button>
+          <button type="button" class="choice" data-choice="installation" aria-pressed="false">
+            <span class="choice-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10l8-6 8 6v10H4V10z"/><path d="M9 20v-6h6v6"/></svg></span>
+            <strong>Installation</strong><span>Long séjour</span>
+          </button>
+        </div>
+
+        <div class="stack" style="gap: 16px;" data-profile-scope>
+          <article class="card" data-profile-panel="etudiant">
+            <div class="grid-2">
+              <div>
+                <h3 class="h3" style="font-size: 18px;">Étudier en Côte d'Ivoire</h3>
+                <ul class="stack" style="gap: 10px; margin-top: 14px; color: var(--muted); font-size: 15px;">
+                  <li><strong style="color: var(--fg);">Établissements phares</strong> — Université Félix Houphouët-Boigny (Cocody), INP-HB (Yamoussoukro).</li>
+                  <li><strong style="color: var(--fg);">Quartiers étudiants</strong> — Cocody, Yopougon, Bingerville.</li>
+                  <li><strong style="color: var(--fg);">Vie étudiante</strong> — restaurants universitaires, bibliothèques, associations.</li>
+                  <li><strong style="color: var(--fg);">Démarches</strong> — équivalence de diplômes, inscription en ligne, permis de séjour étudiant.</li>
+                </ul>
+              </div>
+              <div class="card card-soft">
+                <p class="eyebrow">À prévoir</p>
+                <div class="stack" style="gap: 12px; font-size: 14px;">
+                  <span class="row-between"><span class="meta">Caution logement</span><strong>1 à 2 mois</strong></span>
+                  <span class="row-between"><span class="meta">Inscription</span><strong>Frais annuels</strong></span>
+                  <span class="row-between"><span class="meta">Rentrée</span><strong>Sept. / Oct.</strong></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-profile-panel="touriste" hidden>
+            <h3 class="h3" style="font-size: 18px;">Le meilleur pour un touriste</h3>
+            <p class="lead" style="margin-top: 8px;">Les lieux les plus visités en Côte d'Ivoire.</p>
+            <div class="grid-2" style="margin-top: 18px;">
+              <ul class="stack" style="gap: 10px; color: var(--muted); font-size: 15px;">
+                <li><strong style="color: var(--fg);">Basilique Notre-Dame de la Paix</strong> — Yamoussoukro</li>
+                <li><strong style="color: var(--fg);">Grand-Bassam</strong> — ville historique classée UNESCO</li>
+                <li><strong style="color: var(--fg);">Le Plateau & la lagune Ébrié</strong> — Abidjan</li>
+                <li><strong style="color: var(--fg);">Musée des Civilisations</strong> — Abidjan</li>
+              </ul>
+              <ul class="stack" style="gap: 10px; color: var(--muted); font-size: 15px;">
+                <li><strong style="color: var(--fg);">Parc national de Taï</strong> — forêt classée UNESCO</li>
+                <li><strong style="color: var(--fg);">Marché de Treichville</strong> — artisanat et couleurs locales</li>
+                <li><strong style="color: var(--fg);">Meilleure période</strong> — saison sèche (nov. à mars)</li>
+                <li><strong style="color: var(--fg);">Durée conseillée</strong> — 5 à 10 jours</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card" data-profile-panel="visiteur" hidden>
+            <h3 class="h3" style="font-size: 18px;">Visite de courte durée</h3>
+            <ul class="stack" style="gap: 10px; margin-top: 14px; color: var(--muted); font-size: 15px;">
+              <li><strong style="color: var(--fg);">Formalités</strong> — passeport valide et billet de retour.</li>
+              <li><strong style="color: var(--fg);">Hébergement</strong> — hôtels du Plateau et de Cocody, résidences meublées.</li>
+              <li><strong style="color: var(--fg);">Se déplacer</strong> — VTC, taxis et bus urbains.</li>
+              <li><strong style="color: var(--fg);">Utile</strong> — ambassade de votre pays et hôpitaux de référence.</li>
+            </ul>
+          </article>
+
+          <article class="card" data-profile-panel="professionnel" hidden>
+            <h3 class="h3" style="font-size: 18px;">Voyage professionnel</h3>
+            <ul class="stack" style="gap: 10px; margin-top: 14px; color: var(--muted); font-size: 15px;">
+              <li><strong style="color: var(--fg);">Quartiers d'affaires</strong> — Plateau (centre), Cocody / Riviera.</li>
+              <li><strong style="color: var(--fg);">Formalités</strong> — visa affaires et lettre d'invitation de l'entreprise.</li>
+              <li><strong style="color: var(--fg);">Sur place</strong> — banques, espaces de coworking, chambre de commerce.</li>
+              <li><strong style="color: var(--fg);">Déplacements</strong> — VTC et liaisons régionales pour vos réunions.</li>
+            </ul>
+          </article>
+
+          <article class="card" data-profile-panel="installation" hidden>
+            <h3 class="h3" style="font-size: 18px;">S'installer durablement</h3>
+            <ul class="stack" style="gap: 10px; margin-top: 14px; color: var(--muted); font-size: 15px;">
+              <li><strong style="color: var(--fg);">Logement</strong> — agences et quartiers Cocody, Marcory, Riviera.</li>
+              <li><strong style="color: var(--fg);">Démarches</strong> — carte de séjour, compte bancaire, couverture santé.</li>
+              <li><strong style="color: var(--fg);">Famille</strong> — écoles internationales et universités.</li>
+              <li><strong style="color: var(--fg);">Budget</strong> — prévoir les premiers mois et la caution.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pagefoot" data-od-id="footer">
+    <div class="container row-between">
+      <span>© AfriWay · 2026</span>
+      <span class="meta"><a href="index.html">Tous les écrans</a></span>
+    </div>
+  </footer>
+  <script src="js/globe.js"></script>
+  <script src="js/afriway.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var hash = (location.hash || "").replace("#", "");
+      var map = { documents: "tab-docs", etudes: "tab-etudes", logement: "tab-logement", cout: "tab-cout", transport: "tab-transport" };
+      var tabId = map[hash];
+      if (!tabId) return;
+      var tab = document.getElementById(tabId);
+      if (tab) tab.click();
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var group = document.querySelector("[data-profile-choice]");
+      var scope = document.querySelector("[data-profile-scope]");
+      if (!group || !scope) return;
+      var map = { etudes: "etudiant", voyage: "touriste", travail: "professionnel", installation: "installation", entrepreneuriat: "professionnel" };
+
+      function show(key) {
+        scope.querySelectorAll("[data-profile-panel]").forEach(function (p) {
+          p.hidden = p.getAttribute("data-profile-panel") !== key;
+        });
+        group.querySelectorAll("[data-choice]").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-choice") === key ? "true" : "false");
+        });
+      }
+
+      var state = window.AfriWay ? AfriWay.loadState() : {};
+      show(map[state.goal] || "etudiant");
+
+      group.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-choice]");
+        if (btn) show(btn.getAttribute("data-choice"));
+      });
+    });
+  </script>
+</body>
+</html>
